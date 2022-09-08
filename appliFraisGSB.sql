@@ -49,7 +49,7 @@ INSERT INTO `etat` (`id`, `libelle`) VALUES
 --
 
 CREATE TABLE `fichefrais` (
-  `idVisiteur` char(4) NOT NULL,
+  `idutilisateur` char(4) NOT NULL,
   `mois` char(6) NOT NULL,
   `nbJustificatifs` int(11) DEFAULT NULL,
   `montantValide` decimal(10,2) DEFAULT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE `fichefrais` (
 -- Déchargement des données de la table `fichefrais`
 --
 
-INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValide`, `dateModif`, `idEtat`) VALUES
+INSERT INTO `fichefrais` (`idutilisateur`, `mois`, `nbJustificatifs`, `montantValide`, `dateModif`, `idEtat`) VALUES
 ('a131', '201706', 11, '2165.43', '2017-08-01', 'RB'),
 ('a131', '201707', 2, '3280.02', '2017-09-05', 'RB'),
 ('a131', '201708', 11, '3652.49', '2017-10-04', 'RB'),
@@ -1039,7 +1039,7 @@ INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValid
 ('f21', '202002', 12, '2275.04', '2020-04-06', 'RB'),
 ('f21', '202003', 12, '4150.30', '2020-05-08', 'RB'),
 ('f21', '202004', 12, '2463.00', '2020-06-04', 'RB');
-INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValide`, `dateModif`, `idEtat`) VALUES
+INSERT INTO `fichefrais` (`idutilisateur`, `mois`, `nbJustificatifs`, `montantValide`, `dateModif`, `idEtat`) VALUES
 ('f21', '202005', 5, '3525.26', '2020-07-04', 'RB'),
 ('f21', '202006', 5, '1474.98', '2020-08-07', 'RB'),
 ('f21', '202007', 0, '2820.96', '2020-08-07', 'VA'),
@@ -1152,7 +1152,7 @@ INSERT INTO `fraisforfait` (`id`, `libelle`, `montant`) VALUES
 --
 
 CREATE TABLE `lignefraisforfait` (
-  `idVisiteur` char(4) NOT NULL,
+  `idutilisateur` char(4) NOT NULL,
   `mois` char(6) NOT NULL,
   `idFraisForfait` char(3) NOT NULL,
   `quantite` int(11) DEFAULT NULL
@@ -1162,7 +1162,7 @@ CREATE TABLE `lignefraisforfait` (
 -- Déchargement des données de la table `lignefraisforfait`
 --
 
-INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
+INSERT INTO `lignefraisforfait` (`idutilisateur`, `mois`, `idFraisForfait`, `quantite`) VALUES
 ('a131', '201706', 'ETP', 9),
 ('a131', '201706', 'KM', 391),
 ('a131', '201706', 'NUI', 3),
@@ -2966,7 +2966,7 @@ INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quanti
 ('b50', '201809', 'ETP', 10),
 ('b50', '201809', 'KM', 918),
 ('b50', '201809', 'NUI', 13);
-INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
+INSERT INTO `lignefraisforfait` (`idutilisateur`, `mois`, `idFraisForfait`, `quantite`) VALUES
 ('b50', '201809', 'REP', 18),
 ('b50', '201810', 'ETP', 3),
 ('b50', '201810', 'KM', 459),
@@ -4780,7 +4780,7 @@ INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quanti
 ('e52', '201706', 'KM', 466),
 ('e52', '201706', 'NUI', 7),
 ('e52', '201706', 'REP', 16);
-INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
+INSERT INTO `lignefraisforfait` (`idutilisateur`, `mois`, `idFraisForfait`, `quantite`) VALUES
 ('e52', '201707', 'ETP', 8),
 ('e52', '201707', 'KM', 673),
 ('e52', '201707', 'NUI', 9),
@@ -5410,7 +5410,7 @@ INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quanti
 
 CREATE TABLE `lignefraishorsforfait` (
   `id` int(11) NOT NULL,
-  `idVisiteur` char(4) NOT NULL,
+  `idutilisateur` char(4) NOT NULL,
   `mois` char(6) NOT NULL,
   `libelle` varchar(100) DEFAULT NULL,
   `date` date DEFAULT NULL,
@@ -5421,7 +5421,7 @@ CREATE TABLE `lignefraishorsforfait` (
 -- Déchargement des données de la table `lignefraishorsforfait`
 --
 
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`) VALUES
+INSERT INTO `lignefraishorsforfait` (`id`, `idutilisateur`, `mois`, `libelle`, `date`, `montant`) VALUES
 (1, 'a131', '201706', 'traiteur, alimentation, boisson', '2017-06-16', '419.00'),
 (2, 'a131', '201706', 'achat de matériel de papèterie', '2017-06-02', '37.00'),
 (3, 'a131', '201707', 'taxi', '2017-07-28', '36.00'),
@@ -6099,7 +6099,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (675, 'b16', '201712', 'repas avec praticien', '2017-12-16', '30.00'),
 (676, 'b16', '201712', 'taxi', '2017-12-26', '20.00'),
 (677, 'b16', '201712', 'location équipement vidéo/sonore', '2017-12-21', '485.00');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`) VALUES
+INSERT INTO `lignefraishorsforfait` (`id`, `idutilisateur`, `mois`, `libelle`, `date`, `montant`) VALUES
 (678, 'b16', '201712', 'taxi', '2017-12-17', '36.00'),
 (679, 'b16', '201801', 'traiteur, alimentation, boisson', '2018-01-27', '245.00'),
 (680, 'b16', '201801', 'traiteur, alimentation, boisson', '2018-01-01', '384.00'),
@@ -6774,7 +6774,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (1349, 'b50', '201712', 'traiteur, alimentation, boisson', '2017-12-15', '235.00'),
 (1350, 'b50', '201712', 'achat de matériel de papèterie', '2017-12-09', '25.00'),
 (1351, 'b50', '201801', 'taxi', '2018-01-17', '30.00');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`) VALUES
+INSERT INTO `lignefraishorsforfait` (`id`, `idutilisateur`, `mois`, `libelle`, `date`, `montant`) VALUES
 (1352, 'b50', '201801', 'Voyage SNCF', '2018-01-21', '139.00'),
 (1353, 'b50', '201801', 'rémunération intervenant/spécialiste', '2018-01-04', '288.00'),
 (1354, 'b50', '201801', 'taxi', '2018-01-14', '51.00'),
@@ -7445,7 +7445,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (2019, 'd13', '201811', 'location salle conférence', '2018-11-15', '574.00'),
 (2020, 'd13', '201812', 'rémunération intervenant/spécialiste', '2018-12-11', '705.00'),
 (2021, 'd13', '201902', 'traiteur, alimentation, boisson', '2019-02-12', '84.00');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`) VALUES
+INSERT INTO `lignefraishorsforfait` (`id`, `idutilisateur`, `mois`, `libelle`, `date`, `montant`) VALUES
 (2022, 'd13', '201902', 'rémunération intervenant/spécialiste', '2019-02-04', '287.00'),
 (2023, 'd13', '201902', 'location équipement vidéo/sonore', '2019-02-21', '712.00'),
 (2024, 'd13', '201902', 'frais vestimentaire/représentation', '2019-02-07', '54.00'),
@@ -8119,7 +8119,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (2692, 'e49', '202007', 'frais vestimentaire/représentation', '2020-07-13', '371.00'),
 (2693, 'e49', '202007', 'location équipement vidéo/sonore', '2020-07-21', '359.00'),
 (2694, 'e49', '202008', 'repas avec praticien', '2020-08-05', '46.00');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`) VALUES
+INSERT INTO `lignefraishorsforfait` (`id`, `idutilisateur`, `mois`, `libelle`, `date`, `montant`) VALUES
 (2695, 'e49', '202008', 'traiteur, alimentation, boisson', '2020-08-27', '360.00'),
 (2696, 'e5', '201706', 'location véhicule', '2017-06-02', '74.00'),
 (2697, 'e5', '201706', 'location véhicule', '2017-06-10', '148.00'),
@@ -8762,10 +8762,10 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 -- --------------------------------------------------------
 
 --
--- Structure de la table `visiteur`
+-- Structure de la table `utilisateur`
 --
 
-CREATE TABLE `visiteur` (
+CREATE TABLE `utilisateur` (
   `id` char(4) NOT NULL,
   `nom` char(30) DEFAULT NULL,
   `prenom` char(30) DEFAULT NULL,
@@ -8774,14 +8774,15 @@ CREATE TABLE `visiteur` (
   `adresse` char(30) DEFAULT NULL,
   `cp` char(5) DEFAULT NULL,
   `ville` char(30) DEFAULT NULL,
-  `dateEmbauche` date DEFAULT NULL
+  `dateEmbauche` date DEFAULT NULL,
+  `role` char(1) DEFAULT 'V'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `visiteur`
+-- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `visiteur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, `ville`, `dateEmbauche`) VALUES
+INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, `ville`, `dateEmbauche`) VALUES
 ('a131', 'Villechalane', 'Louis', 'lvillachane', '92eb980737f1854076b2e34933286d8e', '8 rue des Charmes', '46000', 'Cahors', '2005-12-21'),
 ('a17', 'Andre', 'David', 'dandre', '37f2381c9a729782c38410b1ea5b8191', '1 rue Petit', '46200', 'Lalbenque', '1998-11-23'),
 ('a55', 'Bedos', 'Christian', 'cbedos', '26ec3c585ee973005c2744742d920dc3', '1 rue Peranud', '46250', 'Montcuq', '1995-01-12'),
@@ -8825,7 +8826,7 @@ ALTER TABLE `etat`
 -- Index pour la table `fichefrais`
 --
 ALTER TABLE `fichefrais`
-  ADD PRIMARY KEY (`idVisiteur`,`mois`),
+  ADD PRIMARY KEY (`idutilisateur`,`mois`),
   ADD KEY `idEtat` (`idEtat`);
 
 --
@@ -8838,7 +8839,7 @@ ALTER TABLE `fraisforfait`
 -- Index pour la table `lignefraisforfait`
 --
 ALTER TABLE `lignefraisforfait`
-  ADD PRIMARY KEY (`idVisiteur`,`mois`,`idFraisForfait`),
+  ADD PRIMARY KEY (`idutilisateur`,`mois`,`idFraisForfait`),
   ADD KEY `idFraisForfait` (`idFraisForfait`);
 
 --
@@ -8846,12 +8847,12 @@ ALTER TABLE `lignefraisforfait`
 --
 ALTER TABLE `lignefraishorsforfait`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idVisiteur` (`idVisiteur`,`mois`);
+  ADD KEY `idutilisateur` (`idutilisateur`,`mois`);
 
 --
--- Index pour la table `visiteur`
+-- Index pour la table `utilisateur`
 --
-ALTER TABLE `visiteur`
+ALTER TABLE `utilisateur`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -8873,20 +8874,20 @@ ALTER TABLE `lignefraishorsforfait`
 --
 ALTER TABLE `fichefrais`
   ADD CONSTRAINT `fichefrais_ibfk_1` FOREIGN KEY (`idEtat`) REFERENCES `etat` (`id`),
-  ADD CONSTRAINT `fichefrais_ibfk_2` FOREIGN KEY (`idVisiteur`) REFERENCES `visiteur` (`id`);
+  ADD CONSTRAINT `fichefrais_ibfk_2` FOREIGN KEY (`idutilisateur`) REFERENCES `utilisateur` (`id`);
 
 --
 -- Contraintes pour la table `lignefraisforfait`
 --
 ALTER TABLE `lignefraisforfait`
-  ADD CONSTRAINT `lignefraisforfait_ibfk_1` FOREIGN KEY (`idVisiteur`,`mois`) REFERENCES `fichefrais` (`idVisiteur`, `mois`),
+  ADD CONSTRAINT `lignefraisforfait_ibfk_1` FOREIGN KEY (`idutilisateur`,`mois`) REFERENCES `fichefrais` (`idutilisateur`, `mois`),
   ADD CONSTRAINT `lignefraisforfait_ibfk_2` FOREIGN KEY (`idFraisForfait`) REFERENCES `fraisforfait` (`id`);
 
 --
 -- Contraintes pour la table `lignefraishorsforfait`
 --
 ALTER TABLE `lignefraishorsforfait`
-  ADD CONSTRAINT `lignefraishorsforfait_ibfk_1` FOREIGN KEY (`idVisiteur`,`mois`) REFERENCES `fichefrais` (`idVisiteur`, `mois`);
+  ADD CONSTRAINT `lignefraishorsforfait_ibfk_1` FOREIGN KEY (`idutilisateur`,`mois`) REFERENCES `fichefrais` (`idutilisateur`, `mois`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
